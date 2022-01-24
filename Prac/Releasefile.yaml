@@ -1,6 +1,6 @@
 # Exported from:        http://LAPTOP-LBQA6LE0:5516/
-# Release version:      22.0.0-SNAPSHOT
-# Date created:         Sun Jan 23 19:13:52 IST 2022
+# Release version:      22.0.0-rc.2
+# Date created:         Mon Jan 24 16:03:30 IST 2022
 
 ---
 apiVersion: xl-release/v1
@@ -8,35 +8,19 @@ kind: Templates
 metadata:
   home: prac
 spec:
-- folderVariables:
-  - type: xlrelease.PasswordStringVariable
-    key: folder.passwdvar
-    value: !value "xlrelease_PasswordStringVariable_folder_passwdvar_value"
-- name: mygit
-  type: git.Repository
-  url: https://github.com/vijay-pandurangan/selpython
-  username: vijay-pandurangan
-  password: !value "git_Repository_mygit_password"
-- template: temp
-  scheduledStartDate: 2022-01-23T09:00:00+05:30
-  dueDate: 2022-01-23T10:00:00+05:30
-  phases:
-  - phase: New Phase
-    tasks:
-    - name: qw
-      type: xlrelease.ScriptTask
-      script: print("HEYY")
-  scriptUsername: admin
-  scriptUserPassword: !value "xlrelease_Release_temp_scriptUserPassword"
-  riskProfile: Default risk profile
-- template: tempmsn
-  scheduledStartDate: 2022-01-23T09:00:00+05:30
-  dueDate: 2022-01-23T10:00:00+05:30
+- template: temp01
+  scheduledStartDate: 2022-01-24T09:00:00+05:30
   phases:
   - phase: New Phase
     tasks:
     - name: t1
-      type: xlrelease.Task
+      type: xlrelease.ScriptTask
+      script: |-
+        for i in range(10):
+            print(i)
+            print("HEY")
+  scriptUsername: admin
+  scriptUserPassword: !value "xlrelease_Release_temp01_scriptUserPassword"
   riskProfile: Default risk profile
 - notifications:
   - notification: TASK_OVERDUE
