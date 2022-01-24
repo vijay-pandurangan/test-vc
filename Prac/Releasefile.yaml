@@ -19,6 +19,7 @@ spec:
         for i in range(10):
             print(i)
             print("HEY")
+            print("edited")
   scriptUsername: admin
   scriptUserPassword: !value "xlrelease_Release_temp01_scriptUserPassword"
   riskProfile: Default risk profile
