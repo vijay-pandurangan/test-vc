@@ -1,6 +1,6 @@
-# Exported from:        http://LAPTOP-LBQA6LE0:5516/
-# Release version:      22.0.0-rc.2
-# Date created:         Mon Jan 24 16:03:30 IST 2022
+# Exported from:        http://LAPTOP-LBQA6LE0:5517/
+# Release version:      22.1.0-SNAPSHOT
+# Date created:         Fri Mar 04 11:11:41 IST 2022
 
 ---
 apiVersion: xl-release/v1
@@ -9,19 +9,12 @@ metadata:
   home: prac
 spec:
 - template: temp01
-  scheduledStartDate: 2022-01-24T09:00:00+05:30
+  scheduledStartDate: 2022-03-04T09:00:00+05:30
   phases:
   - phase: New Phase
     tasks:
-    - name: t1
-      type: xlrelease.ScriptTask
-      script: |-
-        for i in range(10):
-            print(i)
-            print("HEY")
-            print("edited")
-  scriptUsername: admin
-  scriptUserPassword: !value "xlrelease_Release_temp01_scriptUserPassword"
+    - name: task 1
+      type: xlrelease.Task
   riskProfile: Default risk profile
 - notifications:
   - notification: TASK_OVERDUE
