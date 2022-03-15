@@ -1,6 +1,6 @@
 # Exported from:        http://LAPTOP-LBQA6LE0:5516/
 # Release version:      22.1.0-315.452
-# Date created:         Tue Mar 15 17:53:52 IST 2022
+# Date created:         Tue Mar 15 17:56:49 IST 2022
 
 ---
 apiVersion: xl-release/v1
@@ -8,6 +8,28 @@ kind: Templates
 metadata:
   home: test-01
 spec:
+- template: temp01
+  scheduledStartDate: 2022-03-04T09:00:00+05:30
+  dueDate: 2022-03-04T10:00:00+05:30
+  phases:
+  - phase: New Phase
+    tasks:
+    - name: task 1
+      type: xlrelease.Task
+  riskProfile: Default risk profile
+- template: template to print 1 to 10
+  scheduledStartDate: 2022-03-15T09:00:00+05:30
+  phases:
+  - phase: New Phase
+    tasks:
+    - name: t1
+      type: xlrelease.ScriptTask
+      script: |-
+        for i in range(11):
+            print(i)
+  scriptUsername: admin
+  scriptUserPassword: !value "xlrelease_Release_template_to_print_1_to_10_scriptUserPassword"
+  riskProfile: Default risk profile
 - notifications:
   - notification: TASK_OVERDUE
     priority: High
