@@ -1,48 +1,138 @@
 # Exported from:        http://LAPTOP-LBQA6LE0:5516/
-# Release version:      22.1.0-315.452
-# Date created:         Tue Mar 15 17:58:33 IST 2022
+# Release version:      22.1.0-rc.5
+# Date created:         Tue Apr 05 11:45:31 IST 2022
 
 ---
 apiVersion: xl-release/v1
 kind: Templates
 metadata:
-  home: test-01
+  home: test-folder
 spec:
-- template: temp01
-  scheduledStartDate: 2022-03-04T09:00:00+05:30
-  dueDate: 2022-03-04T10:00:00+05:30
+- name: my-jenkins
+  type: jenkins.Server
+  url: http://localhost:8080/
+  username: rooty
+  password: !value "jenkins_Server_my_jenkins_password"
+- name: my-jira
+  type: jira.Server
+  url: https://digitalai.atlassian.net/
+  username: vijay.pandurangan@digital.ai
+  apiToken: !value "jira_Server_my_jira_apiToken"
+- pattern: pattern1
+  stages:
+  - stage: New Stage
+- template: "1"
+  scheduledStartDate: 2022-04-05T09:00:00+05:30
+  phases:
+  - phase: New Phase
+  riskProfile: Default risk profile
+- template: temlpate-manual
+  scheduledStartDate: 2022-04-05T09:00:00+05:30
   phases:
   - phase: New Phase
     tasks:
-    - name: task 1
+    - name: "1"
       type: xlrelease.Task
   riskProfile: Default risk profile
-- template: template to print 1 to 10
-  scheduledStartDate: 2022-03-15T09:00:00+05:30
+- template: template wowey
+  scheduledStartDate: 2021-08-05T09:00:00+05:30
   phases:
   - phase: New Phase
     tasks:
-    - name: t1
+    - name: paralle 1
+      type: xlrelease.ParallelGroup
+      tasks:
+      - name: t1
+        type: xlrelease.ScriptTask
+        script: |-
+          for i in range(1000):
+              print(i)
+      - name: t2
+        type: xlrelease.ScriptTask
+        script: |-
+          for i in range(1000):
+              print(i)
+      - name: t3
+        type: xlrelease.ScriptTask
+        script: |-
+          for i in range(1000):
+              print(i)
+      - name: sequ 1
+        type: xlrelease.SequentialGroup
+        tasks:
+        - name: ts1
+          type: xlrelease.ScriptTask
+          script: |-
+            for i in range(100000):
+                print(i)
+        - name: ts2
+          type: jenkins.Build
+          jenkinsServer: my-jenkins
+          jobName: Automation
+      - name: jekns tsk
+        type: jenkins.Build
+        jenkinsServer: my-jenkins
+        jobName: Automation
+    - name: jira task
+      type: jira.Query
+      jiraServer: my-jira
+      query: assignee = currentUser() AND resolution = Unresolved order by updated
+        DESC
+    - name: jira1
+      type: jira.Query
+      jiraServer: my-jira
+      query: assignee = currentUser() AND resolution = Unresolved order by updated
+        DESC
+    - name: jenkins taskk1
+      type: jenkins.Build
+      jenkinsServer: my-jenkins
+      jobName: Automation
+  - phase: New Phase
+    tasks:
+    - name: para2
       type: xlrelease.ScriptTask
       script: |-
-        for i in range(11):
-            print(i)
+        for i in range(10):
+            print("Printing " + str(i))
+    - name: t2
+      type: xlrelease.ScriptTask
+      script: |-
+        for i in range(10):
+            print("Printing " + str(i))
+    - name: t3
+      type: jenkins.Build
+      jenkinsServer: my-jenkins
+      jobName: Automation
+    - name: t4
+      type: jira.Query
+      jiraServer: my-jira
+      query: assignee = currentUser() AND resolution = Unresolved order by updated
+        DESC
   scriptUsername: admin
-  scriptUserPassword: !value "xlrelease_Release_template_to_print_1_to_10_scriptUserPassword"
+  scriptUserPassword: !value "xlrelease_Release_template_wowey_scriptUserPassword"
   riskProfile: Default risk profile
-- template: template to print 1 to 20
-  scheduledStartDate: 2022-03-15T09:00:00+05:30
+- template: template-jy
+  scheduledStartDate: 2022-04-05T09:00:00+05:30
   phases:
   - phase: New Phase
     tasks:
-    - name: t1
+    - name: w1
       type: xlrelease.ScriptTask
       script: |-
-        for i in range(21):
-            print(i)
+        for i in range(10):
+            print("Printing " + str(i))
   scriptUsername: admin
-  scriptUserPassword: !value "xlrelease_Release_template_to_print_1_to_20_scriptUserPassword"
+  scriptUserPassword: !value "xlrelease_Release_template_jy_scriptUserPassword"
   riskProfile: Default risk profile
+- name: trigger-manual
+  type: time.Schedule
+  releaseTitle: release trigger-manual
+  template: temlpate-manual
+  releaseFolder: ./
+  pollType: REPEAT
+  periodicity: "1"
+  enabled: false
+  triggerTime: 2022-04-05T11:37:58.779000
 - notifications:
   - notification: TASK_OVERDUE
     priority: High
