@@ -1,6 +1,6 @@
 # Exported from:        http://LAPTOP-LBQA6LE0:5517/
-# Release version:      10.3.12-SNAPSHOT
-# Date created:         Fri May 13 18:18:52 IST 2022
+# Release version:      23.1.0-SNAPSHOT
+# Date created:         Mon Oct 31 18:03:53 IST 2022
 
 ---
 apiVersion: xl-release/v1
@@ -8,16 +8,139 @@ kind: Templates
 metadata:
   home: test
 spec:
-- template: temp-manual-13
-  scheduledStartDate: 2022-05-13T09:00:00+05:30
+- folderVariables:
+  - type: xlrelease.StringVariable
+    key: folder.ada
+  - type: xlrelease.StringVariable
+    key: folder.1w
+- pattern: pat1
+  stages:
+  - stage: New Stage
+  trackedItems:
+  - trackedItem: "11"
+  - trackedItem: "12"
+  - trackedItem: "13"
+- template: tmp01
+  scheduledStartDate: 2022-10-31T09:00:00+05:30
   phases:
   - phase: New Phase
     tasks:
-    - name: qw1
+    - name: "1"
       type: xlrelease.Task
-  scriptUsername: admin
-  scriptUserPassword: !value "xlrelease_Release_temp_manual_13_scriptUserPassword"
   riskProfile: Default risk profile
+- name: Release statistics
+  type: xlrelease.ReleaseStatisticsDashboard
+  owner: admin
+  tiles:
+  - name: Longest task type
+    type: xlrelease.LongestTaskTypeTile
+    row: 0
+    col: 1
+    filters:
+    - type: xlrelease.FolderFilter
+      folder: ./
+    - type: xlrelease.DateFilter
+  - name: Number of releases
+    type: xlrelease.ReleasesByMonthTile
+    row: 2
+    col: 3
+    filters:
+    - type: xlrelease.FolderFilter
+      folder: ./
+    - type: xlrelease.DateFilter
+  - name: Release efficiency
+    type: xlrelease.ReleaseEfficiencyTile
+    row: 2
+    col: 0
+    filters:
+    - type: xlrelease.FolderFilter
+      folder: ./
+    - type: xlrelease.DateFilter
+  - name: Avg. task duration
+    type: xlrelease.AvgTaskDurationTile
+    row: 1
+    col: 1
+    filters:
+    - type: xlrelease.FolderFilter
+      folder: ./
+    - type: xlrelease.DateFilter
+  - name: Time spent by task category
+    type: xlrelease.TaskTimeSpentTile
+    row: 0
+    col: 4
+    filters:
+    - type: xlrelease.FolderFilter
+      folder: ./
+    - type: xlrelease.DateFilter
+  - name: Completed releases
+    type: xlrelease.CompletedReleasesTile
+    row: 0
+    col: 0
+    filters:
+    - type: xlrelease.FolderFilter
+      folder: ./
+    - type: xlrelease.DateFilter
+  - name: Avg. release duration
+    type: xlrelease.AvgReleaseDurationTile
+    row: 1
+    col: 0
+    filters:
+    - type: xlrelease.FolderFilter
+      folder: ./
+    - type: xlrelease.DateFilter
+  - name: Task efficiency
+    type: xlrelease.TaskEfficiencyTile
+    row: 0
+    col: 2
+    filters:
+    - type: xlrelease.FolderFilter
+      folder: ./
+    - type: xlrelease.DateFilter
+  - name: Top 10 longest releases
+    type: xlrelease.LongestReleasesTile
+    row: 4
+    col: 0
+    filters:
+    - type: xlrelease.FolderFilter
+      folder: ./
+    - type: xlrelease.DateFilter
+  - name: Avg. release duration over time
+    type: xlrelease.AvgReleaseDurationByMonthTile
+    row: 4
+    col: 3
+    filters:
+    - type: xlrelease.FolderFilter
+      folder: ./
+    - type: xlrelease.DateFilter
+  - name: Top 10 longest phases
+    type: xlrelease.LongestPhasesTile
+    row: 6
+    col: 0
+    filters:
+    - type: xlrelease.FolderFilter
+      folder: ./
+    - type: xlrelease.DateFilter
+  - name: Top 10 longest tasks
+    type: xlrelease.LongestTasksTile
+    row: 6
+    col: 3
+    filters:
+    - type: xlrelease.FolderFilter
+      folder: ./
+    - type: xlrelease.DateFilter
+  filters:
+  - type: xlrelease.FolderFilter
+    folder: ./
+  - type: xlrelease.DateFilter
+- name: test trigger
+  type: time.Schedule
+  releaseTitle: release from test trig
+  template: tmp01
+  releaseFolder: ./
+  pollType: REPEAT
+  periodicity: "5"
+  enabled: false
+  triggerTime: 2022-10-31T17:51:19.253000
 - notifications:
   - notification: TASK_OVERDUE
     priority: High
