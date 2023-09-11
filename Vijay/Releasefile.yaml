@@ -1,6 +1,6 @@
 # Exported from:        http://qe-release-controller2.xebialabs.com:5516/
 # Release version:      23.3.0-beta.6
-# Date created:         Mon Sep 11 08:47:29 UTC 2023
+# Date created:         Mon Sep 11 08:52:32 UTC 2023
 
 ---
 apiVersion: xl-release/v1
@@ -8,18 +8,9 @@ kind: Templates
 metadata:
   home: vijay
 spec:
-- template: created new temp
-  scheduledStartDate: 2023-09-11T03:30:00Z
-  phases:
-  - phase: New Phase
-    tasks:
-    - name: "1"
-      type: xlrelease.Task
-  riskProfile: Default risk profile
-  author: alice
-  defaultTargetFolder: ./
 - template: temp1
   scheduledStartDate: 2023-09-11T03:30:00Z
+  dueDate: 2023-09-11T04:30:00Z
   phases:
   - phase: New Phase
     tasks:
@@ -34,6 +25,7 @@ spec:
   defaultTargetFolder: ./
 - template: temp2
   scheduledStartDate: 2023-09-11T03:30:00Z
+  dueDate: 2023-09-11T04:30:00Z
   phases:
   - phase: New Phase
     tasks:
@@ -48,6 +40,7 @@ spec:
   defaultTargetFolder: ./
 - template: temp3
   scheduledStartDate: 2023-09-11T03:30:00Z
+  dueDate: 2023-09-11T04:30:00Z
   phases:
   - phase: New Phase
     tasks:
@@ -57,6 +50,21 @@ spec:
       type: xlrelease.Task
   scriptUsername: admin
   scriptUserPassword: !value "xlrelease_Release_temp3_scriptUserPassword"
+  riskProfile: Default risk profile
+  author: alice
+  defaultTargetFolder: ./
+- template: temp4
+  scheduledStartDate: 2023-09-11T03:30:00Z
+  dueDate: 2023-09-11T04:30:00Z
+  phases:
+  - phase: New Phase
+    tasks:
+    - name: t1
+      type: xlrelease.Task
+    - name: t2
+      type: xlrelease.Task
+  scriptUsername: admin
+  scriptUserPassword: !value "xlrelease_Release_temp4_scriptUserPassword"
   riskProfile: Default risk profile
   author: alice
   defaultTargetFolder: ./
