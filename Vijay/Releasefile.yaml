@@ -1,6 +1,6 @@
-# Exported from:        http://qe-release-controller3.xebialabs.com:5516/
+# Exported from:        http://qe-release-controller2.xebialabs.com:5516/
 # Release version:      23.3.0-beta.6
-# Date created:         Mon Sep 11 08:45:36 UTC 2023
+# Date created:         Mon Sep 11 08:47:29 UTC 2023
 
 ---
 apiVersion: xl-release/v1
@@ -8,6 +8,16 @@ kind: Templates
 metadata:
   home: vijay
 spec:
+- template: created new temp
+  scheduledStartDate: 2023-09-11T03:30:00Z
+  phases:
+  - phase: New Phase
+    tasks:
+    - name: "1"
+      type: xlrelease.Task
+  riskProfile: Default risk profile
+  author: alice
+  defaultTargetFolder: ./
 - template: temp1
   scheduledStartDate: 2023-09-11T03:30:00Z
   phases:
