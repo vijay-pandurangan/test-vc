@@ -1,0 +1,30 @@
+# Exported from:        http://Vijays-MacBook-Pro.local:5516/
+# Release version:      25.1.0-1118.113
+# Date created:         Tue Nov 19 14:45:46 IST 2024
+
+---
+apiVersion: xl-release/v1
+kind: Templates
+metadata:
+  path: /
+  home: test11
+spec:
+- template: temp01
+  scheduledStartDate: 2024-11-19T09:00:00+05:30
+  phases:
+  - phase: New Phase
+    tasks:
+    - name: UIT
+      type: xlrelease.UserInputTask
+      description: Please enter the required information below.
+      variables:
+      - multi_select_list_box_value_provider
+  variables:
+  - type: xlrelease.ListStringVariable
+    key: multi_select_list_box_value_provider
+    valueProvider:
+      type: xlrelease.EnvironmentValueProvider
+  scriptUsername: admin
+  scriptUserPassword: !value "xlrelease_Release_temp01_scriptUserPassword"
+  riskProfile: Default risk profile
+  author: admin

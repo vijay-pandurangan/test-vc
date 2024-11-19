@@ -1,12 +1,13 @@
-# Exported from:        http://LAPTOP-LBQA6LE0:5516/
-# Release version:      23.3.0-rc.2
-# Date created:         Wed Oct 11 12:15:22 IST 2023
+# Exported from:        http://Vijays-MacBook-Pro.local:5516/
+# Release version:      25.1.0-1118.113
+# Date created:         Tue Nov 19 14:45:46 IST 2024
 
 ---
 apiVersion: xl-release/v1
 kind: Templates
 metadata:
-  home: testing
+  path: /
+  home: test11
 spec:
 - notifications:
   - notification: TASK_OVERDUE
@@ -20,6 +21,13 @@ spec:
     - Watcher
     - Release Admin
     - Task Owner
+  - notification: AUDIT_REPORT_JOB_ABORTED
+    priority: Normal
+    subject: "[Release] Audit report was aborted"
+    body: |-
+      **Your audit report was aborted!**
+
+       Please try to generate it again or contact your Release administrator for assistance.
   - notification: TASK_FLAGGED
     priority: High
     subject: "[Release] ${release.title}: ${task.title}"
@@ -31,13 +39,6 @@ spec:
     - Watcher
     - Release Admin
     - Task Team
-  - notification: AUDIT_REPORT_JOB_ABORTED
-    priority: Normal
-    subject: "[Release] Audit report was aborted"
-    body: |-
-      **Your audit report was aborted!**
-
-       Please try to generate it again or contact your Release administrator for assistance.
   - notification: MANUAL_TASK_STARTED
     priority: Normal
     subject: "[Release] ${release.title}: ${task.title}"
@@ -183,19 +184,6 @@ spec:
     priority: Normal
     subject: "${notification.subject}"
     body: "${notification.body}"
-  - notification: RELEASE_STARTED
-    priority: Normal
-    subject: "[Release] ${release.title}"
-    body: "The **${release.title}** release has been started."
-    bulkSubject: "[Release] Multiple releases started"
-    bulkBody: |-
-      The following releases have been started:
-
-      ${#releases}
-      * [${title}](${url})
-      ${/releases}
-    roles:
-    - Release Admin
   - notification: RELEASE_ABORTED
     priority: Normal
     subject: "[Release] ${release.title}"
@@ -203,6 +191,19 @@ spec:
     bulkSubject: "[Release] Multiple releases aborted"
     bulkBody: |-
       The following releases have been aborted:
+
+      ${#releases}
+      * [${title}](${url})
+      ${/releases}
+    roles:
+    - Release Admin
+  - notification: RELEASE_STARTED
+    priority: Normal
+    subject: "[Release] ${release.title}"
+    body: "The **${release.title}** release has been started."
+    bulkSubject: "[Release] Multiple releases started"
+    bulkBody: |-
+      The following releases have been started:
 
       ${#releases}
       * [${title}](${url})
