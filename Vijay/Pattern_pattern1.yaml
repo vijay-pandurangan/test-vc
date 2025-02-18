@@ -1,0 +1,24 @@
+# Exported from:        http://qe-release-controller1.xebialabs.com:5516/
+# Release version:      25.1.0-beta.3
+# Date created:         Tue Feb 18 08:50:09 UTC 2025
+
+---
+apiVersion: xl-release/v1
+kind: Templates
+metadata:
+  path: /
+  home: vijay
+spec:
+- pattern: pattern1
+  stages:
+  - stage: New Stage
+  - stage: some stage 2
+  - stage: more stage 3
+  trackedItems:
+  - trackedItem: it1
+  - trackedItem: it
+  - trackedItem: it2
+  - trackedItem: it3
+  - trackedItem: it4
+  - trackedItem: it5
+  - trackedItem: it6
