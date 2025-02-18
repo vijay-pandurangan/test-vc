@@ -1,0 +1,23 @@
+# Exported from:        http://qe-release-controller1.xebialabs.com:5516/
+# Release version:      25.1.0-beta.3
+# Date created:         Tue Feb 18 08:42:35 UTC 2025
+
+---
+apiVersion: xl-release/v1
+kind: Templates
+metadata:
+  path: /
+  home: vijay
+spec:
+- name: time trigger
+  type: time.Schedule
+  description: this is some description for this trigger this is some description
+    for this trigger
+  releaseTitle: release to run unix script and jython using time trigger
+  template: tp01
+  tags:
+  - someTagForThisActivity
+  pollType: REPEAT
+  periodicity: "60"
+  enabled: false
+  triggerTime: 2025-02-07T08:20:50.399000

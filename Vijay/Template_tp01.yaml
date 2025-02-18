@@ -1,0 +1,72 @@
+# Exported from:        http://qe-release-controller1.xebialabs.com:5516/
+# Release version:      25.1.0-beta.3
+# Date created:         Tue Feb 18 08:42:35 UTC 2025
+
+---
+apiVersion: xl-release/v1
+kind: Templates
+metadata:
+  path: /
+  home: vijay
+spec:
+- template: tp01
+  scheduledStartDate: 2025-02-06T03:30:00Z
+  phases:
+  - phase: New Phase
+    tasks:
+    - name: say hello
+      type: xlrelease.ScriptTask
+      script: |-
+        for i in range(2500):
+          print("HEYYYYYYY......"+str(i))
+    - name: unix script task
+      type: remoteScript.Unix
+      script: |-
+        i=1
+        while [ $i -le 30 ]
+        do
+            echo $i
+            i=$(($i+1))
+            sleep 1
+        done
+      address: qe-automation-server.xebialabs.com
+      username: ubuntu
+      password: !value "remoteScript_Unix_unix_script_task_password"
+    - name: say hello (copy)
+      type: xlrelease.ScriptTask
+      script: |-
+        for i in range(2500):
+          print("HEYYYYYYY......"+str(i))
+    - name: unix script task (copy)
+      type: remoteScript.Unix
+      script: |-
+        i=1
+        while [ $i -le 50 ]
+        do
+            echo $i
+            i=$(($i+1))
+            sleep 1
+        done
+      address: qe-automation-server.xebialabs.com
+      username: ubuntu
+      password: !value "remoteScript_Unix_unix_script_task__copy__password"
+    - name: say hello (copy) (copy)
+      type: xlrelease.ScriptTask
+      script: |-
+        for i in range(2500):
+          print("HEYYYYYYY......"+str(i))
+    - name: unix script task (copy) (copy)
+      type: remoteScript.Unix
+      script: |-
+        i=1
+        while [ $i -le 50 ]
+        do
+            echo $i
+            i=$(($i+1))
+            sleep 1
+        done
+      address: qe-automation-server.xebialabs.com
+      username: ubuntu
+      password: !value "remoteScript_Unix_unix_script_task__copy___copy__password"
+  riskProfile: Default risk profile
+  author: admin

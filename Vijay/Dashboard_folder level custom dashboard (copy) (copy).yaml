@@ -1,0 +1,93 @@
+# Exported from:        http://qe-release-controller1.xebialabs.com:5516/
+# Release version:      25.1.0-beta.3
+# Date created:         Tue Feb 18 08:42:34 UTC 2025
+
+---
+apiVersion: xl-release/v1
+kind: Templates
+metadata:
+  path: /
+  home: vijay
+spec:
+- name: folder level custom dashboard (copy) (copy)
+  type: xlrelease.BlankDashboard
+  owner: vijay
+  tiles:
+  - name: Active releases
+    type: live.ReleasesTile
+    row: 0
+    col: 0
+    filters:
+    - type: xlrelease.DateFilter
+    - type: xlrelease.CompositeFilter
+      filters:
+      - type: xlrelease.FolderFilter
+        folder: ./
+  - name: Active releases by risk
+    type: live.ReleasesByRiskTile
+    row: 0
+    col: 2
+    filters:
+    - type: xlrelease.DateFilter
+    - type: xlrelease.CompositeFilter
+      filters:
+      - type: xlrelease.FolderFilter
+        folder: ./
+  - name: Active releases by status
+    type: live.ReleasesByStatusTile
+    row: 0
+    col: 4
+    filters:
+    - type: xlrelease.DateFilter
+    - type: xlrelease.CompositeFilter
+      filters:
+      - type: xlrelease.FolderFilter
+        folder: ./
+  - name: Avg. release duration
+    type: xlrelease.AvgReleaseDurationTile
+    row: 2
+    col: 0
+  - name: Avg. release duration over time
+    type: xlrelease.AvgReleaseDurationByMonthTile
+    row: 2
+    col: 1
+  - name: Avg. task duration
+    type: xlrelease.AvgTaskDurationTile
+    row: 2
+    col: 4
+  - name: Completed releases
+    type: xlrelease.CompletedReleasesTile
+    row: 2
+    col: 5
+  - name: Longest task type
+    type: xlrelease.LongestTaskTypeTile
+    row: 3
+    col: 0
+  - name: Number of releases
+    type: xlrelease.ReleasesByMonthTile
+    row: 4
+    col: 0
+  - name: Task efficiency
+    type: xlrelease.TaskEfficiencyTile
+    row: 3
+    col: 4
+  - name: Time spent by task category
+    type: xlrelease.TaskTimeSpentTile
+    row: 5
+    col: 3
+  - name: Top 10 longest phases
+    type: xlrelease.LongestPhasesTile
+    row: 6
+    col: 0
+  - name: Top 10 longest releases
+    type: xlrelease.LongestReleasesTile
+    row: 7
+    col: 3
+  - name: Top 10 longest tasks
+    type: xlrelease.LongestTasksTile
+    row: 8
+    col: 0
+  - name: Top 10 task assignees
+    type: xlrelease.TopTenTaskAssigneeTile
+    row: 9
+    col: 3
