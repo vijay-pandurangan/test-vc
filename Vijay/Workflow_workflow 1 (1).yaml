@@ -9,17 +9,14 @@ metadata:
   path: /
   home: vijay
 spec:
-- template: tp01
+- template: workflow 1 (1)
   scheduledStartDate: 2025-02-06T03:30:00Z
   dueDate: 2025-02-06T04:30:00Z
   phases:
-  - phase: New Phase
+  - phase: Workflow tasks
     tasks:
-    - name: say hello
-      type: xlrelease.ScriptTask
-      script: |-
-        for i in range(2500):
-          print("HEYYYYYYY......"+str(i))
+    - name: first
+      type: xlrelease.Task
     - name: unix script task
       type: remoteScript.Unix
       script: |-
@@ -33,11 +30,11 @@ spec:
       address: qe-automation-server.xebialabs.com
       username: ubuntu
       password: !value "remoteScript_Unix_unix_script_task_password"
-    - name: say hello (copy)
+    - name: say hello
       type: xlrelease.ScriptTask
       script: |-
-        for i in range(2500):
-          print("HEYYYYYYY......"+str(i))
+        for i in range(2000):
+          print("HELLO........." + str(i))
     - name: unix script task (copy)
       type: remoteScript.Unix
       script: |-
@@ -51,16 +48,16 @@ spec:
       address: qe-automation-server.xebialabs.com
       username: ubuntu
       password: !value "remoteScript_Unix_unix_script_task__copy__password"
-    - name: say hello (copy) (copy)
+    - name: say hello (copy)
       type: xlrelease.ScriptTask
       script: |-
-        for i in range(2500):
-          print("HEYYYYYYY......"+str(i))
+        for i in range(2000):
+          print("HELLO........." + str(i))
     - name: unix script task (copy) (copy)
       type: remoteScript.Unix
       script: |-
         i=1
-        while [ $i -le 50 ]
+        while [ $i -le 70 ]
         do
             echo $i
             i=$(($i+1))
@@ -69,5 +66,17 @@ spec:
       address: qe-automation-server.xebialabs.com
       username: ubuntu
       password: !value "remoteScript_Unix_unix_script_task__copy___copy__password"
-  riskProfile: Default risk profile
-  author: admin
+    - name: say hello (copy) (copy)
+      type: xlrelease.ScriptTask
+      script: |-
+        for i in range(2000):
+          print("HELLO........." + str(i))
+  kind: WORKFLOW
+  disableNotifications: true
+  scriptUsername: admin
+  scriptUserPassword: !value "xlrelease_Release_workflow_1__1__scriptUserPassword"
+  author: vijayThis is the workflow template which first needs to be started  it has
+    some print hello task few unix script taskThis is the workflow template which
+    first needs to be started  it has some print hello task few unix script taskThis
+    is the workflow templ
+  defaultTargetFolder: ./

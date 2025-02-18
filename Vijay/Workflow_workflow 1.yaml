@@ -1,6 +1,6 @@
-# Exported from:        http://qe-release-controller1.xebialabs.com:5516/
+# Exported from:        http://qe-release-controller3.xebialabs.com:5516/
 # Release version:      25.1.0-beta.3
-# Date created:         Tue Feb 18 08:42:35 UTC 2025
+# Date created:         Tue Feb 18 08:44:55 UTC 2025
 
 ---
 apiVersion: xl-release/v1
@@ -19,6 +19,7 @@ spec:
     it has some print hello task
     few unix script task
   scheduledStartDate: 2025-02-06T03:30:00Z
+  dueDate: 2025-02-06T04:30:00Z
   phases:
   - phase: Workflow tasks
     tasks:
