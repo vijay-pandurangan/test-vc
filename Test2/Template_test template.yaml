@@ -1,0 +1,23 @@
+# Exported from:        http://Vijays-MacBook-Pro.local:5516/
+# Release version:      25.1.0-225.113
+# Date created:         Wed Feb 26 15:03:51 IST 2025
+
+---
+apiVersion: xl-release/v1
+kind: Templates
+metadata:
+  path: /
+  home: test1
+spec:
+- template: test template
+  scheduledStartDate: 2025-02-26T09:00:00+05:30
+  phases:
+  - phase: New Phase
+    tasks:
+    - name: jenkins build
+      type: jenkins.Build
+      jenkinsServer: local jenkins server
+  scriptUsername: admin
+  scriptUserPassword: !value "xlrelease_Release_test_template_scriptUserPassword"
+  riskProfile: Default risk profile
+  author: admin
