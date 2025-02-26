@@ -1,6 +1,6 @@
 # Exported from:        http://Vijays-MacBook-Pro.local:5516/
 # Release version:      25.1.0-225.113
-# Date created:         Wed Feb 26 15:03:51 IST 2025
+# Date created:         Wed Feb 26 15:05:21 IST 2025
 
 ---
 apiVersion: xl-release/v1
@@ -9,4 +9,5 @@ spec:
   imports:
   - Connections.yaml
   - Notifications.yaml
+  - Template_test template 2.yaml
   - Template_test template.yaml

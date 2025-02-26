@@ -9,7 +9,7 @@ metadata:
   path: /
   home: test1
 spec:
-- template: test template
+- template: test template 2
   scheduledStartDate: 2025-02-26T09:00:00+05:30
   phases:
   - phase: New Phase
@@ -18,6 +18,6 @@ spec:
       type: jenkins.Build
       jenkinsServer: local jenkins server
   scriptUsername: admin
-  scriptUserPassword: !value "xlrelease_Release_test_template_scriptUserPassword"
+  scriptUserPassword: !value "xlrelease_Release_test_template_2_scriptUserPassword"
   riskProfile: Default risk profile
   author: admin
