@@ -1,6 +1,6 @@
 # Exported from:        http://qe-release-controller1.xebialabs.com:5516/
-# Release version:      25.1.0-beta.3
-# Date created:         Tue Feb 18 08:50:09 UTC 2025
+# Release version:      25.1.0-beta.6
+# Date created:         Thu Mar 20 14:42:17 UTC 2025
 
 ---
 apiVersion: xl-release/v1

@@ -9,7 +9,7 @@ metadata:
   path: /
   home: vijay
 spec:
-- template: workflow 1
+- template: test workflow 2
   scheduledStartDate: 2025-03-18T03:30:00Z
   phases:
   - phase: Workflow tasks
@@ -82,7 +82,7 @@ spec:
     showOnReleaseStart: false
   disableNotifications: true
   scriptUsername: admin
-  scriptUserPassword: !value "xlrelease_Release_workflow_1_scriptUserPassword"
+  scriptUserPassword: !value "xlrelease_Release_test_workflow_2_scriptUserPassword"
   author: Vijay
   allowTargetFolderOverride: false
   defaultTargetFolder: ./

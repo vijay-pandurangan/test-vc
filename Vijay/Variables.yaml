@@ -1,0 +1,32 @@
+# Exported from:        http://qe-release-controller1.xebialabs.com:5516/
+# Release version:      25.1.0-beta.6
+# Date created:         Thu Mar 20 14:42:17 UTC 2025
+
+---
+apiVersion: xl-release/v1
+kind: Templates
+metadata:
+  path: /
+  home: vijay
+spec:
+- folderVariables:
+  - type: xlrelease.StringVariable
+    key: folder.v1
+  - type: xlrelease.ListStringVariable
+    key: folder.multi select list box Fixed list
+    valueProvider:
+      type: xlrelease.ListOfStringValueProviderConfiguration
+      values:
+      - "1"
+      - "2"
+      - "3"
+      - "4"
+      - r
+      - ft
+      - g
+      - h
+      - yu
+      - j
+      - ki
+  - type: xlrelease.StringVariable
+    key: folder.v1 copy

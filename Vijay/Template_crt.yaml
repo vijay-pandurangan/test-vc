@@ -1,0 +1,34 @@
+# Exported from:        http://qe-release-controller1.xebialabs.com:5516/
+# Release version:      25.1.0-beta.6
+# Date created:         Thu Mar 20 14:42:17 UTC 2025
+
+---
+apiVersion: xl-release/v1
+kind: Templates
+metadata:
+  path: /
+  home: vijay
+spec:
+- template: crt
+  scheduledStartDate: 2025-03-14T03:30:00Z
+  phases:
+  - phase: New Phase
+    tasks:
+    - name: crt
+      type: xlrelease.CreateReleaseTask
+      newReleaseTitle: release created from CRT
+      templateVariables:
+      - type: xlrelease.StringVariable
+        key: var1
+        value: asas
+      - type: xlrelease.StringVariable
+        key: var2
+        value: something
+      - type: xlrelease.StringVariable
+        key: var2 copy
+        value: something
+      template: vp1/man1
+  scriptUsername: admin
+  scriptUserPassword: !value "xlrelease_Release_crt_scriptUserPassword"
+  riskProfile: Default risk profile
+  author: alice

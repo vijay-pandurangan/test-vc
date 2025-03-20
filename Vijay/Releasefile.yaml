@@ -1,18 +1,15 @@
 # Exported from:        http://qe-release-controller1.xebialabs.com:5516/
-# Release version:      25.1.0-beta.3
-# Date created:         Tue Feb 18 08:50:09 UTC 2025
+# Release version:      25.1.0-beta.6
+# Date created:         Thu Mar 20 14:42:17 UTC 2025
 
 ---
 apiVersion: xl-release/v1
 kind: Import
 spec:
   imports:
-  - Dashboard_folder level custom dashboard (copy) (copy).yaml
-  - Dashboard_folder level custom dashboard (copy).yaml
-  - Dashboard_folder level custom dashboard.yaml
   - Notifications.yaml
-  - Pattern_pattern1.yaml
-  - Template_tp01.yaml
+  - Template_crt.yaml
   - Trigger_time trigger.yaml
-  - Workflow_workflow 1 (1).yaml
+  - Variables.yaml
+  - Workflow_test workflow 2.yaml
   - Workflow_workflow 1.yaml
