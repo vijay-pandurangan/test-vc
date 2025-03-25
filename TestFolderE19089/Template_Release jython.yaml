@@ -1,0 +1,31 @@
+# Exported from:        http://Vijays-MacBook-Pro.local:5516/
+# Release version:      25.1.0-SNAPSHOT
+# Date created:         Tue Mar 25 09:17:09 IST 2025
+
+---
+apiVersion: xl-release/v1
+kind: Templates
+metadata:
+  path: /
+  home: test folder
+spec:
+- template: Release jython
+  scheduledStartDate: 2025-03-25T09:00:00+05:30
+  phases:
+  - phase: New Phase
+    tasks:
+    - name: jython
+      type: xlrelease.ScriptTask
+      ignoreScriptVariableInterpolation: true
+      script: |-
+        from com.xebialabs.xlrelease.api.v1.forms import CreateRelease
+        from com.xebialabs.xlrelease.domain import Release
+        from com.xebialabs.deployit.plugin.api.reflect import Type
+
+        createReleaseObj = CreateRelease()
+        createReleaseObj.releaseTitle = "Release created via JYTHON script task"
+        release = templateApi.create('Applications/Folder15d48523651e44e48549a175c48bf97b/Releasee96fcbb66da84863a1628f9ffa1fa545', createReleaseObj)
+  scriptUsername: admin
+  scriptUserPassword: !value "xlrelease_Release_Release_jython_scriptUserPassword"
+  riskProfile: Default risk profile
+  author: admin

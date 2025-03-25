@@ -1,0 +1,46 @@
+# Exported from:        http://Vijays-MacBook-Pro.local:5516/
+# Release version:      25.1.0-SNAPSHOT
+# Date created:         Tue Mar 25 09:17:09 IST 2025
+
+---
+apiVersion: xl-release/v1
+kind: Templates
+metadata:
+  path: /
+  home: test folder
+spec:
+- template: Release groovy
+  scheduledStartDate: 2025-03-25T09:00:00+05:30
+  phases:
+  - phase: New Phase
+    tasks:
+    - name: groovy
+      type: xlrelease.GroovyScriptTask
+      ignoreScriptVariableInterpolation: true
+      script: |-
+        // Exported from:        http://Vijays-MacBook-Pro.local:5516/#/templates/Folder15d48523651e44e48549a175c48bf97b-Releasebfddfd39086148bcbc8f4d0c4f113658/code
+        // Release version:      25.1.0-SNAPSHOT
+        // Date created:         Tue Mar 25 09:08:39 IST 2025
+
+        xlr {
+          release('Release via Groovy') {
+            tags 'important', 'test'
+            description "Sample template created from Groovy DSL"
+            folder('test folder')
+            author 'admin'
+            phases {
+              phase('New Phase') {
+                tasks {
+                  manual('New task1') {
+
+                  }
+                }
+              }
+            }
+
+          }
+        }
+  scriptUsername: admin
+  scriptUserPassword: !value "xlrelease_Release_Release_groovy_scriptUserPassword"
+  riskProfile: Default risk profile
+  author: admin

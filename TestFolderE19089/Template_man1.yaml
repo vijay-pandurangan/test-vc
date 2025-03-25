@@ -1,0 +1,20 @@
+# Exported from:        http://Vijays-MacBook-Pro.local:5516/
+# Release version:      25.1.0-SNAPSHOT
+# Date created:         Tue Mar 25 09:17:09 IST 2025
+
+---
+apiVersion: xl-release/v1
+kind: Templates
+metadata:
+  path: /
+  home: test folder
+spec:
+- template: man1
+  scheduledStartDate: 2025-03-25T09:00:00+05:30
+  phases:
+  - phase: New Phase
+    tasks:
+    - name: New task1
+      type: xlrelease.Task
+  riskProfile: Default risk profile
+  author: admin

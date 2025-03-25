@@ -1,0 +1,33 @@
+# Exported from:        http://Vijays-MacBook-Pro.local:5516/
+# Release version:      25.1.0-SNAPSHOT
+# Date created:         Tue Mar 25 09:17:09 IST 2025
+
+---
+apiVersion: xl-release/v1
+kind: Templates
+metadata:
+  path: /
+  home: test folder
+spec:
+- template: CRT
+  scheduledStartDate: 2025-03-25T09:00:00+05:30
+  phases:
+  - phase: New Phase
+    tasks:
+    - name: crt
+      type: xlrelease.CreateReleaseTask
+      newReleaseTitle: "${someReleaseTitle}"
+      createdReleaseId: "${createdReleaseID}"
+      template: ./use this template
+  variables:
+  - type: xlrelease.StringVariable
+    key: createdReleaseID
+    requiresValue: false
+    showOnReleaseStart: false
+  - type: xlrelease.StringVariable
+    key: someReleaseTitle
+    value: This is the Release Created Via CRT
+  scriptUsername: admin
+  scriptUserPassword: !value "xlrelease_Release_CRT_scriptUserPassword"
+  riskProfile: Default risk profile
+  author: admin
